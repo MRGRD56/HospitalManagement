@@ -41,9 +41,14 @@ namespace Golikov_WinFormHospital
                 DataSet ds = new DataSet();
                 SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, connection);
                 adapter.Fill(ds);
-                DoctorsDataGridView.DataSource = ds.Tables[0];
                 PatientsDataGridView.DataSource = ds.Tables[1];
                 DoctorVisitsDataGridView.DataSource = ds.Tables[2];
+                
+                BindingSource bs1 = new BindingSource();
+                bs1.DataSource = ds.Tables[0];
+
+                DoctorsBindingNavigator.BindingSource = bs1;
+                DoctorsDataGridView.DataSource = bs1;
             }
         }
     }
