@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Golikov_WinFormHospital", "Golikov_WinFormHospital\Golikov_WinFormHospital.csproj", "{CDAD1F36-295C-4CC6-851E-A39B35A44703}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CDAD1F36-295C-4CC6-851E-A39B35A44703}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDAD1F36-295C-4CC6-851E-A39B35A44703}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDAD1F36-295C-4CC6-851E-A39B35A44703}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDAD1F36-295C-4CC6-851E-A39B35A44703}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
