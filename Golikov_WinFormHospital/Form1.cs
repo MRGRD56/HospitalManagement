@@ -74,5 +74,13 @@ namespace Golikov_WinFormHospital
                 );
             UpdateAllView();
         }
-	}
+
+        private void DeleteDoctorButton_Click(object sender, EventArgs e)
+        {
+            if (selectedRow == null) return;
+            var doctorId = selectedRow.Cells[0].Value.ToString();
+            MyDb.DeleteObjectFromDataBase("Врач", doctorId);
+            UpdateAllView();
+        }
+    }
 }

@@ -1,4 +1,6 @@
-﻿namespace Golikov_WinFormHospital
+﻿using System;
+
+namespace Golikov_WinFormHospital
 {
     partial class Form1
     {
@@ -161,6 +163,7 @@
 			this.DeleteDoctorButton.TabIndex = 3;
 			this.DeleteDoctorButton.Text = "Delete";
 			this.DeleteDoctorButton.UseVisualStyleBackColor = true;
+			this.DeleteDoctorButton.Click += new EventHandler(this.DeleteDoctorButton_Click);
 			// 
 			// SpecialtyIdTB
 			// 

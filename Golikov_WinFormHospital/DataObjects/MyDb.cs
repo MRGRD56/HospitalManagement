@@ -63,5 +63,11 @@ namespace Golikov_WinFormHospital.DataObjects
                            $"WHERE Ид = {id}", Connection)
                 .ExecuteNonQuery();
         }
+
+        public static void DeleteObjectFromDataBase(string objectName, string id, string idName = "Ид")
+        {
+            new SqlCommand($"DELETE FROM {objectName} WHERE {idName} = {id}", Connection)
+                .ExecuteNonQuery();
+        }
     }
 }
