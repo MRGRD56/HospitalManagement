@@ -74,5 +74,5 @@ namespace Golikov_WinFormHospital
                 );
             UpdateAllView();
         }
-    }
+	}
 }
