@@ -51,7 +51,7 @@ namespace Golikov_WinFormHospital.DataObjects
         {
             new SqlCommand(
                     $"INSERT INTO Врач(ФИО, СпециальностьИд, СтоимостьПриёма, ПроцентОтчисленияНаЗарплату, ПоликлиникаИд) " +
-                    $"VALUES ({fullName}, {specialtyId}, {visitCost}, {salaryPercent}, {hospitalId})")
+                    $"VALUES ('{fullName}', '{specialtyId}', '{visitCost}', '{salaryPercent}', '{hospitalId}')", Connection)
                 .ExecuteNonQuery();
             MyDb.UpdateViewData();
         }
