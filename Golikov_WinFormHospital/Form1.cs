@@ -8,48 +8,53 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Golikov_WinFormHospital.DataObjects;
 
 namespace Golikov_WinFormHospital
 {
     public partial class Form1 : Form
     {
+        private int selectedRowIndex;
+        
         public Form1()
         {
             InitializeComponent();
+            
+            //MyDb.Connection.Open();
+            UpdateAllView();
+        }
 
-            string conString = @"Data Source=OCMSSQL02;Initial Catalog=Голиков3пк2_Поликлиника;Integrated Security=True";
-                              //TABLE 1 - Врачи
-            string sqlQuery = "SELECT Врач.Ид, Врач.ФИО, Специальность.НазваниеСпециальности, СтоимостьПриёма, " +
-                              "ПроцентОтчисленияНаЗарплату, Поликлиника.Название AS \"НазваниеПоликлиники\" " +
-                              "FROM Врач " +
-                              "INNER JOIN Специальность ON Врач.СпециальностьИд = Специальность.Ид " +
-                              "INNER JOIN Поликлиника ON Врач.ПоликлиникаИд = Поликлиника.Ид\n" +
-                              //TABLE 2 - Пациенты
-                              "SELECT * FROM Пациент\n" +
-                              //TABLE 3 - Приёмы
-                              "SELECT Приём.Ид, Пациент.ФИО AS \"ФИО пациента\", Врач.ФИО AS \"ФИО врача\", " +
-                              "Кабинет.Номер AS \"НомерКабинета\", Поликлиника.Название AS \"Поликлиника\" " +
-                              "FROM Приём " + 
-                              "INNER JOIN Врач ON Приём.ВрачИд = Врач.Ид " +
-                              "INNER JOIN Пациент ON Приём.ПациентИд = Пациент.Ид " +
-                              "INNER JOIN Кабинет ON Приём.КабинетИд = Кабинет.Ид " +
-                              "INNER JOIN Поликлиника ON Кабинет.ПоликлиникаИд = Поликлиника.Ид";
+        private void UpdateAllView()
+        {
+            MyDb.UpdateViewData();
+            
+            DoctorsDataGridView.DataSource = MyDb.DSet.Tables[0];
+            PatientsDataGridView.DataSource = MyDb.DSet.Tables[1];
+            DoctorVisitsDataGridView.DataSource = MyDb.DSet.Tables[2];
+        }
 
-            using (SqlConnection connection = new SqlConnection(conString))
-            {
-                connection.Open();
-                DataSet ds = new DataSet();
-                SqlDataAdapter adapter = new SqlDataAdapter(sqlQuery, connection);
-                adapter.Fill(ds);
-                PatientsDataGridView.DataSource = ds.Tables[1];
-                DoctorVisitsDataGridView.DataSource = ds.Tables[2];
-                
-                BindingSource bs1 = new BindingSource();
-                bs1.DataSource = ds.Tables[0];
+        private void AddDoctor_Click(object sender, EventArgs e)
+        {
+            //MyDb.DSet.Tables[0].Rows.Add();
+            MyDb.AddDoctorToDataBase(
+                FullnameTB.Text,
+                SpecialtyIdTB.Text,
+                VisitCostTB.Text,
+                SalaryPercentTB.Text,
+                HospitalIdTB.Text);
+        }
 
-                DoctorsBindingNavigator.BindingSource = bs1;
-                DoctorsDataGridView.DataSource = bs1;
-            }
+        private void DoctorsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRowIndex = e.RowIndex;
+            if (selectedRowIndex < 0) return; 
+            DataGridViewRow row = DoctorsDataGridView.Rows[selectedRowIndex];
+
+            FullnameTB.Text = row.Cells[1].Value.ToString();
+            SpecialtyIdTB.Text = row.Cells[2].Value.ToString();
+            VisitCostTB.Text = row.Cells[3].Value.ToString();
+            SalaryPercentTB.Text = row.Cells[4].Value.ToString();
+            HospitalIdTB.Text = row.Cells[5].Value.ToString();
         }
     }
 }

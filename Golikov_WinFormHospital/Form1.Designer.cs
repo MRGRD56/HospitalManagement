@@ -29,23 +29,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.MainTabControl = new System.Windows.Forms.TabControl();
             this.DoctorsTabPage = new System.Windows.Forms.TabPage();
-            this.DoctorsBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
-            this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.FullnameTB = new System.Windows.Forms.TextBox();
+            this.HospitalIdTB = new System.Windows.Forms.TextBox();
+            this.AddDoctorButton = new System.Windows.Forms.Button();
+            this.SalaryPercentTB = new System.Windows.Forms.TextBox();
+            this.EditDoctorButton = new System.Windows.Forms.Button();
+            this.VisitCostTB = new System.Windows.Forms.TextBox();
+            this.DeleteDoctorButton = new System.Windows.Forms.Button();
+            this.SpecialtyIdTB = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.DoctorsDataGridView = new System.Windows.Forms.DataGridView();
             this.PatientsTabPage = new System.Windows.Forms.TabPage();
             this.PatientsDataGridView = new System.Windows.Forms.DataGridView();
@@ -53,8 +52,7 @@
             this.DoctorVisitsDataGridView = new System.Windows.Forms.DataGridView();
             this.MainTabControl.SuspendLayout();
             this.DoctorsTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.DoctorsBindingNavigator)).BeginInit();
-            this.DoctorsBindingNavigator.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.DoctorsDataGridView)).BeginInit();
             this.PatientsTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize) (this.PatientsDataGridView)).BeginInit();
@@ -71,140 +69,159 @@
             this.MainTabControl.Location = new System.Drawing.Point(0, 0);
             this.MainTabControl.Name = "MainTabControl";
             this.MainTabControl.SelectedIndex = 0;
-            this.MainTabControl.Size = new System.Drawing.Size(800, 450);
+            this.MainTabControl.Size = new System.Drawing.Size(998, 593);
             this.MainTabControl.TabIndex = 0;
             // 
             // DoctorsTabPage
             // 
-            this.DoctorsTabPage.Controls.Add(this.DoctorsBindingNavigator);
+            this.DoctorsTabPage.Controls.Add(this.panel1);
             this.DoctorsTabPage.Controls.Add(this.DoctorsDataGridView);
             this.DoctorsTabPage.Location = new System.Drawing.Point(4, 22);
             this.DoctorsTabPage.Name = "DoctorsTabPage";
             this.DoctorsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DoctorsTabPage.Size = new System.Drawing.Size(792, 424);
+            this.DoctorsTabPage.Size = new System.Drawing.Size(990, 567);
             this.DoctorsTabPage.TabIndex = 0;
             this.DoctorsTabPage.Text = "Врачи";
             this.DoctorsTabPage.UseVisualStyleBackColor = true;
             // 
-            // DoctorsBindingNavigator
+            // panel1
             // 
-            this.DoctorsBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
-            this.DoctorsBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.DoctorsBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
-            this.DoctorsBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {this.bindingNavigatorMoveFirstItem, this.bindingNavigatorMovePreviousItem, this.bindingNavigatorSeparator, this.bindingNavigatorPositionItem, this.bindingNavigatorCountItem, this.bindingNavigatorSeparator1, this.bindingNavigatorMoveNextItem, this.bindingNavigatorMoveLastItem, this.bindingNavigatorSeparator2, this.bindingNavigatorAddNewItem, this.bindingNavigatorDeleteItem, this.toolStripButton1});
-            this.DoctorsBindingNavigator.Location = new System.Drawing.Point(3, 3);
-            this.DoctorsBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
-            this.DoctorsBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
-            this.DoctorsBindingNavigator.MoveNextItem = this.bindingNavigatorMoveNextItem;
-            this.DoctorsBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
-            this.DoctorsBindingNavigator.Name = "DoctorsBindingNavigator";
-            this.DoctorsBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.DoctorsBindingNavigator.Size = new System.Drawing.Size(786, 25);
-            this.DoctorsBindingNavigator.TabIndex = 1;
-            this.DoctorsBindingNavigator.Text = "bindingNavigator1";
+            this.panel1.Controls.Add(this.FullnameTB);
+            this.panel1.Controls.Add(this.HospitalIdTB);
+            this.panel1.Controls.Add(this.AddDoctorButton);
+            this.panel1.Controls.Add(this.SalaryPercentTB);
+            this.panel1.Controls.Add(this.EditDoctorButton);
+            this.panel1.Controls.Add(this.VisitCostTB);
+            this.panel1.Controls.Add(this.DeleteDoctorButton);
+            this.panel1.Controls.Add(this.SpecialtyIdTB);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(3, 441);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(984, 123);
+            this.panel1.TabIndex = 12;
             // 
-            // bindingNavigatorAddNewItem
+            // FullnameTB
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Добавить";
+            this.FullnameTB.Location = new System.Drawing.Point(162, 3);
+            this.FullnameTB.Name = "FullnameTB";
+            this.FullnameTB.Size = new System.Drawing.Size(248, 20);
+            this.FullnameTB.TabIndex = 9;
             // 
-            // bindingNavigatorCountItem
+            // HospitalIdTB
             // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(43, 22);
-            this.bindingNavigatorCountItem.Text = "для {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Общее число элементов";
+            this.HospitalIdTB.Location = new System.Drawing.Point(162, 97);
+            this.HospitalIdTB.Name = "HospitalIdTB";
+            this.HospitalIdTB.Size = new System.Drawing.Size(248, 20);
+            this.HospitalIdTB.TabIndex = 11;
             // 
-            // bindingNavigatorDeleteItem
+            // AddDoctorButton
             // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Удалить";
+            this.AddDoctorButton.Location = new System.Drawing.Point(906, 3);
+            this.AddDoctorButton.Name = "AddDoctorButton";
+            this.AddDoctorButton.Size = new System.Drawing.Size(75, 23);
+            this.AddDoctorButton.TabIndex = 1;
+            this.AddDoctorButton.Text = "Add";
+            this.AddDoctorButton.UseVisualStyleBackColor = true;
+            this.AddDoctorButton.Click += new System.EventHandler(this.AddDoctor_Click);
             // 
-            // bindingNavigatorMoveFirstItem
+            // SalaryPercentTB
             // 
-            this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
-            this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
-            this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveFirstItem.Text = "Переместить в начало";
+            this.SalaryPercentTB.Location = new System.Drawing.Point(162, 74);
+            this.SalaryPercentTB.Name = "SalaryPercentTB";
+            this.SalaryPercentTB.Size = new System.Drawing.Size(248, 20);
+            this.SalaryPercentTB.TabIndex = 11;
             // 
-            // bindingNavigatorMovePreviousItem
+            // EditDoctorButton
             // 
-            this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
-            this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
-            this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMovePreviousItem.Text = "Переместить назад";
+            this.EditDoctorButton.Location = new System.Drawing.Point(906, 32);
+            this.EditDoctorButton.Name = "EditDoctorButton";
+            this.EditDoctorButton.Size = new System.Drawing.Size(75, 23);
+            this.EditDoctorButton.TabIndex = 2;
+            this.EditDoctorButton.Text = "Edit";
+            this.EditDoctorButton.UseVisualStyleBackColor = true;
             // 
-            // bindingNavigatorSeparator
+            // VisitCostTB
             // 
-            this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+            this.VisitCostTB.Location = new System.Drawing.Point(162, 50);
+            this.VisitCostTB.Name = "VisitCostTB";
+            this.VisitCostTB.Size = new System.Drawing.Size(248, 20);
+            this.VisitCostTB.TabIndex = 11;
             // 
-            // bindingNavigatorPositionItem
+            // DeleteDoctorButton
             // 
-            this.bindingNavigatorPositionItem.AccessibleName = "Положение";
-            this.bindingNavigatorPositionItem.AutoSize = false;
-            this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
-            this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
-            this.bindingNavigatorPositionItem.Text = "0";
-            this.bindingNavigatorPositionItem.ToolTipText = "Текущее положение";
+            this.DeleteDoctorButton.Location = new System.Drawing.Point(906, 61);
+            this.DeleteDoctorButton.Name = "DeleteDoctorButton";
+            this.DeleteDoctorButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteDoctorButton.TabIndex = 3;
+            this.DeleteDoctorButton.Text = "Delete";
+            this.DeleteDoctorButton.UseVisualStyleBackColor = true;
             // 
-            // bindingNavigatorSeparator1
+            // SpecialtyIdTB
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.SpecialtyIdTB.Location = new System.Drawing.Point(162, 26);
+            this.SpecialtyIdTB.Name = "SpecialtyIdTB";
+            this.SpecialtyIdTB.Size = new System.Drawing.Size(248, 20);
+            this.SpecialtyIdTB.TabIndex = 10;
             // 
-            // bindingNavigatorMoveNextItem
+            // label1
             // 
-            this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMoveNextItem.Image")));
-            this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
-            this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveNextItem.Text = "Переместить вперед";
+            this.label1.Location = new System.Drawing.Point(2, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 18);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "ФИО: ";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // bindingNavigatorMoveLastItem
+            // label2
             // 
-            this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image) (resources.GetObject("bindingNavigatorMoveLastItem.Image")));
-            this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
-            this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorMoveLastItem.Text = "Переместить в конец";
+            this.label2.Location = new System.Drawing.Point(2, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(154, 18);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "СпециальностьИд: ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // bindingNavigatorSeparator2
+            // label4
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
+            this.label4.Location = new System.Drawing.Point(2, 97);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(154, 18);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "ПоликлиникаИд: ";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // toolStripButton1
+            // label3
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image) (resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.label3.Location = new System.Drawing.Point(2, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(154, 18);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Стоимость приёма: ";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label5
+            // 
+            this.label5.Location = new System.Drawing.Point(2, 74);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(154, 18);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Процент отчисления на з/п: ";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // DoctorsDataGridView
             // 
             this.DoctorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DoctorsDataGridView.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.DoctorsDataGridView.Location = new System.Drawing.Point(3, 31);
+            this.DoctorsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+            this.DoctorsDataGridView.Location = new System.Drawing.Point(3, 3);
             this.DoctorsDataGridView.Name = "DoctorsDataGridView";
-            this.DoctorsDataGridView.Size = new System.Drawing.Size(786, 390);
+            this.DoctorsDataGridView.Size = new System.Drawing.Size(984, 437);
             this.DoctorsDataGridView.TabIndex = 0;
+            this.DoctorsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoctorsDataGridView_CellClick);
             // 
             // PatientsTabPage
             // 
@@ -212,7 +229,7 @@
             this.PatientsTabPage.Location = new System.Drawing.Point(4, 22);
             this.PatientsTabPage.Name = "PatientsTabPage";
             this.PatientsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.PatientsTabPage.Size = new System.Drawing.Size(792, 424);
+            this.PatientsTabPage.Size = new System.Drawing.Size(990, 567);
             this.PatientsTabPage.TabIndex = 1;
             this.PatientsTabPage.Text = "Пациенты";
             this.PatientsTabPage.UseVisualStyleBackColor = true;
@@ -223,7 +240,7 @@
             this.PatientsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatientsDataGridView.Location = new System.Drawing.Point(3, 3);
             this.PatientsDataGridView.Name = "PatientsDataGridView";
-            this.PatientsDataGridView.Size = new System.Drawing.Size(786, 418);
+            this.PatientsDataGridView.Size = new System.Drawing.Size(984, 561);
             this.PatientsDataGridView.TabIndex = 0;
             // 
             // DoctorVisitsTabPage
@@ -232,7 +249,7 @@
             this.DoctorVisitsTabPage.Location = new System.Drawing.Point(4, 22);
             this.DoctorVisitsTabPage.Name = "DoctorVisitsTabPage";
             this.DoctorVisitsTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.DoctorVisitsTabPage.Size = new System.Drawing.Size(792, 424);
+            this.DoctorVisitsTabPage.Size = new System.Drawing.Size(990, 567);
             this.DoctorVisitsTabPage.TabIndex = 2;
             this.DoctorVisitsTabPage.Text = "Приёмы";
             this.DoctorVisitsTabPage.UseVisualStyleBackColor = true;
@@ -243,23 +260,21 @@
             this.DoctorVisitsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DoctorVisitsDataGridView.Location = new System.Drawing.Point(3, 3);
             this.DoctorVisitsDataGridView.Name = "DoctorVisitsDataGridView";
-            this.DoctorVisitsDataGridView.Size = new System.Drawing.Size(786, 418);
+            this.DoctorVisitsDataGridView.Size = new System.Drawing.Size(984, 561);
             this.DoctorVisitsDataGridView.TabIndex = 0;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(998, 593);
             this.Controls.Add(this.MainTabControl);
             this.Name = "Form1";
             this.Text = "Hospital";
             this.MainTabControl.ResumeLayout(false);
             this.DoctorsTabPage.ResumeLayout(false);
-            this.DoctorsTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.DoctorsBindingNavigator)).EndInit();
-            this.DoctorsBindingNavigator.ResumeLayout(false);
-            this.DoctorsBindingNavigator.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize) (this.DoctorsDataGridView)).EndInit();
             this.PatientsTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize) (this.PatientsDataGridView)).EndInit();
@@ -268,21 +283,26 @@
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.BindingNavigator DoctorsBindingNavigator;
+        private System.Windows.Forms.Panel panel1;
 
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.TextBox HospitalIdTB;
+        private System.Windows.Forms.TextBox SalaryPercentTB;
+        private System.Windows.Forms.TextBox SpecialtyIdTB;
+        private System.Windows.Forms.TextBox VisitCostTB;
 
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
-        private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
-        private System.Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
-        private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
+        private System.Windows.Forms.TextBox FullnameTB;
+
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+
+        private System.Windows.Forms.Label label3;
+
+        private System.Windows.Forms.Label label2;
+
+        private System.Windows.Forms.Button AddDoctorButton;
+        private System.Windows.Forms.Button DeleteDoctorButton;
+        private System.Windows.Forms.Button EditDoctorButton;
+        private System.Windows.Forms.Label label1;
 
         private System.Windows.Forms.DataGridView DoctorVisitsDataGridView;
 
