@@ -82,5 +82,21 @@ namespace Golikov_WinFormHospital
             MyDb.DeleteObjectFromDataBase("Врач", doctorId);
             UpdateAllView();
         }
-    }
+
+		private void AddPatientButton_Click(object sender, EventArgs e)
+		{
+            var pf = new PatientForm(WorkMode.Add) { Owner = this };
+            pf.Show();
+        }
+
+		private void EditPatientButton_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void DeletePatientButton_Click(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

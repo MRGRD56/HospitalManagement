@@ -1,5 +1,6 @@
 ﻿using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.Contracts;
 
 namespace Golikov_WinFormHospital.DataObjects
 {
@@ -58,15 +59,31 @@ namespace Golikov_WinFormHospital.DataObjects
         public static void EditDoctorInDataBase(string id, string fullName, string specialtyId, string visitCost,
             string salaryPercent, string hospitalId)
         {
-            new SqlCommand($"UPDATE Врач SET ФИО = {fullName}, СпециальностьИд = {specialtyId}, СтоимостьПриёма = {visitCost}, " +
-                           $"ПроцентОтчисленияНаЗарплату = {salaryPercent}, ПоликлиникаИд = {hospitalId} " +
-                           $"WHERE Ид = {id}", Connection)
+            new SqlCommand($"UPDATE Врач SET ФИО = '{fullName}', СпециальностьИд = '{specialtyId}', СтоимостьПриёма = '{visitCost}', " +
+                           $"ПроцентОтчисленияНаЗарплату = '{salaryPercent}', ПоликлиникаИд = '{hospitalId}' " +
+                           $"WHERE Ид = '{id}'", Connection)
                 .ExecuteNonQuery();
         }
 
         public static void DeleteObjectFromDataBase(string objectName, string id, string idName = "Ид")
         {
             new SqlCommand($"DELETE FROM {objectName} WHERE {idName} = {id}", Connection)
+                .ExecuteNonQuery();
+        }
+
+        public static void AddPatientToDataBase(string fullName, string birthDate, string patientAddress)
+        {
+            new SqlCommand(
+                    $"INSERT INTO Пациент (ФИО, ДатаРождения, АдресПациента) " +
+                    $"VALUES ('{fullName}', '{birthDate}', '{patientAddress}'", Connection)
+                .ExecuteNonQuery();
+        }
+
+        public static void EditPatientInDataBase(string id, string fullName, string birthDate, string patientAddress)
+        {
+            new SqlCommand(
+                    $"UPDATE Пациент SET ФИО = '{fullName}', ДатаРождения = '{birthDate}', АдресПациента = '{patientAddress}'" +
+                    $"WHERE Ид = '{id}'")
                 .ExecuteNonQuery();
         }
     }
