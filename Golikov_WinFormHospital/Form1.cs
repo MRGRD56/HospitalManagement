@@ -15,6 +15,7 @@ namespace Golikov_WinFormHospital
     public partial class Form1 : Form
     {
         private int selectedRowIndex;
+        private DataGridViewRow selectedRow;
         
         public Form1()
         {
@@ -33,7 +34,20 @@ namespace Golikov_WinFormHospital
             PatientsDataGridView.DataSource = MyDb.DSet.Tables[1];
             DoctorVisitsDataGridView.DataSource = MyDb.DSet.Tables[2];
         }
+        
+        private void DoctorsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            selectedRowIndex = e.RowIndex;
+            if (selectedRowIndex < 0) return; 
+            selectedRow = DoctorsDataGridView.Rows[selectedRowIndex];
 
+            FullnameTB.Text = selectedRow.Cells[1].Value.ToString();
+            SpecialtyIdTB.Text = selectedRow.Cells[2].Value.ToString();
+            VisitCostTB.Text = selectedRow.Cells[3].Value.ToString();
+            SalaryPercentTB.Text = selectedRow.Cells[4].Value.ToString();
+            HospitalIdTB.Text = selectedRow.Cells[5].Value.ToString();
+        }
+        
         private void AddDoctor_Click(object sender, EventArgs e)
         {
             //MyDb.DSet.Tables[0].Rows.Add();
@@ -43,19 +57,22 @@ namespace Golikov_WinFormHospital
                 VisitCostTB.Text,
                 SalaryPercentTB.Text,
                 HospitalIdTB.Text);
+            UpdateAllView();
         }
 
-        private void DoctorsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void EditDoctorButton_Click(object sender, EventArgs e)
         {
-            selectedRowIndex = e.RowIndex;
-            if (selectedRowIndex < 0) return; 
-            DataGridViewRow row = DoctorsDataGridView.Rows[selectedRowIndex];
-
-            FullnameTB.Text = row.Cells[1].Value.ToString();
-            SpecialtyIdTB.Text = row.Cells[2].Value.ToString();
-            VisitCostTB.Text = row.Cells[3].Value.ToString();
-            SalaryPercentTB.Text = row.Cells[4].Value.ToString();
-            HospitalIdTB.Text = row.Cells[5].Value.ToString();
+            if (selectedRow == null) return;
+            var doctorId = selectedRow.Cells[0].Value.ToString();
+            MyDb.EditDoctorInDataBase(
+                doctorId,
+                FullnameTB.Text,
+                SpecialtyIdTB.Text,
+                VisitCostTB.Text,
+                SalaryPercentTB.Text,
+                HospitalIdTB.Text
+                );
+            UpdateAllView();
         }
     }
 }

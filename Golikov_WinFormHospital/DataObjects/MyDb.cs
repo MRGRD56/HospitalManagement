@@ -53,7 +53,15 @@ namespace Golikov_WinFormHospital.DataObjects
                     $"INSERT INTO Врач(ФИО, СпециальностьИд, СтоимостьПриёма, ПроцентОтчисленияНаЗарплату, ПоликлиникаИд) " +
                     $"VALUES ('{fullName}', '{specialtyId}', '{visitCost}', '{salaryPercent}', '{hospitalId}')", Connection)
                 .ExecuteNonQuery();
-            MyDb.UpdateViewData();
+        }
+
+        public static void EditDoctorInDataBase(string id, string fullName, string specialtyId, string visitCost,
+            string salaryPercent, string hospitalId)
+        {
+            new SqlCommand($"UPDATE Врач SET ФИО = {fullName}, СпециальностьИд = {specialtyId}, СтоимостьПриёма = {visitCost}, " +
+                           $"ПроцентОтчисленияНаЗарплату = {salaryPercent}, ПоликлиникаИд = {hospitalId} " +
+                           $"WHERE Ид = {id}", Connection)
+                .ExecuteNonQuery();
         }
     }
 }
