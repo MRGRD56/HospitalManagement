@@ -14,8 +14,11 @@ namespace Golikov_WinFormHospital
 {
     public partial class Form1 : Form
     {
-        private int selectedRowIndex;
-        private DataGridViewRow selectedRow;
+        public int SelectedDoctorRowIndex;
+        public DataGridViewRow SelectedDoctorRow;
+
+        public int SelectedPatientRowIndex;
+        public DataGridViewRow SelectedPatientRow;
         
         public Form1()
         {
@@ -26,7 +29,7 @@ namespace Golikov_WinFormHospital
             UpdateAllView();
         }
 
-        private void UpdateAllView()
+        public void UpdateAllView()
         {
             MyDb.UpdateViewData();
             
@@ -37,15 +40,15 @@ namespace Golikov_WinFormHospital
         
         private void DoctorsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            selectedRowIndex = e.RowIndex;
-            if (selectedRowIndex < 0) return; 
-            selectedRow = DoctorsDataGridView.Rows[selectedRowIndex];
+            SelectedDoctorRowIndex = e.RowIndex;
+            if (SelectedDoctorRowIndex < 0) return; 
+            SelectedDoctorRow = DoctorsDataGridView.Rows[SelectedDoctorRowIndex];
 
-            FullnameTB.Text = selectedRow.Cells[1].Value.ToString();
-            SpecialtyIdTB.Text = selectedRow.Cells[2].Value.ToString();
-            VisitCostTB.Text = selectedRow.Cells[3].Value.ToString();
-            SalaryPercentTB.Text = selectedRow.Cells[4].Value.ToString();
-            HospitalIdTB.Text = selectedRow.Cells[5].Value.ToString();
+            FullnameTB.Text = SelectedDoctorRow.Cells[1].Value.ToString();
+            SpecialtyIdTB.Text = SelectedDoctorRow.Cells[2].Value.ToString();
+            VisitCostTB.Text = SelectedDoctorRow.Cells[3].Value.ToString();
+            SalaryPercentTB.Text = SelectedDoctorRow.Cells[4].Value.ToString();
+            HospitalIdTB.Text = SelectedDoctorRow.Cells[5].Value.ToString();
         }
         
         private void AddDoctor_Click(object sender, EventArgs e)
@@ -62,8 +65,8 @@ namespace Golikov_WinFormHospital
 
         private void EditDoctorButton_Click(object sender, EventArgs e)
         {
-            if (selectedRow == null) return;
-            var doctorId = selectedRow.Cells[0].Value.ToString();
+            if (SelectedDoctorRow == null) return;
+            var doctorId = SelectedDoctorRow.Cells[0].Value.ToString();
             MyDb.EditDoctorInDataBase(
                 doctorId,
                 FullnameTB.Text,
@@ -77,8 +80,8 @@ namespace Golikov_WinFormHospital
 
         private void DeleteDoctorButton_Click(object sender, EventArgs e)
         {
-            if (selectedRow == null) return;
-            var doctorId = selectedRow.Cells[0].Value.ToString();
+            if (SelectedDoctorRow == null) return;
+            var doctorId = SelectedDoctorRow.Cells[0].Value.ToString();
             MyDb.DeleteObjectFromDataBase("Врач", doctorId);
             UpdateAllView();
         }
@@ -91,12 +94,20 @@ namespace Golikov_WinFormHospital
 
 		private void EditPatientButton_Click(object sender, EventArgs e)
 		{
-
+            var pf = new PatientForm(WorkMode.Edit) { Owner = this };
+            pf.Show();
 		}
 
 		private void DeletePatientButton_Click(object sender, EventArgs e)
 		{
 
 		}
-	}
+
+        private void PatientsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            SelectedPatientRowIndex = e.RowIndex;
+            if (SelectedPatientRowIndex < 0) return; 
+            SelectedPatientRow = DoctorsDataGridView.Rows[SelectedPatientRowIndex];
+        }
+    }
 }
