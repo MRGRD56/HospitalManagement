@@ -28,15 +28,20 @@ namespace Golikov_WinFormHospital.DataObjects
         //     "INNER JOIN Пациент ON Приём.ПациентИд = Пациент.Ид " +
         //     "INNER JOIN Кабинет ON Приём.КабинетИд = Кабинет.Ид " +
         //     "INNER JOIN Поликлиника ON Кабинет.ПоликлиникаИд = Поликлиника.Ид";
+
+        public static SqlConnection Connection { get; } = new SqlConnection(
+            @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Голиков3пк2_Поликлиника;Integrated Security=True");
+        
+        // @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Голиков3пк2_Поликлиника;Integrated Security=True"
+        // @"Data Source=OCMSSQL02;Initial Catalog=Голиков3пк2_Поликлиника;Integrated Security=True"
+        
         private static string SelectQuery { get; } =
             "SELECT * FROM Врач\n" +
             //TABLE 2 - Пациенты
             "SELECT * FROM Пациент\n" +
             //TABLE 3 - Приёмы
             "SELECT * FROM Приём ";
-
-        public static SqlConnection Connection { get; } = new SqlConnection(
-            @"Data Source=OCMSSQL02;Initial Catalog=Голиков3пк2_Поликлиника;Integrated Security=True");
+        
         public static DataSet DSet { get; set; } = new DataSet();
         public static SqlDataAdapter Adapter { get; set; }
 
@@ -75,15 +80,15 @@ namespace Golikov_WinFormHospital.DataObjects
         {
             new SqlCommand(
                     $"INSERT INTO Пациент (ФИО, ДатаРождения, АдресПациента) " +
-                    $"VALUES ('{fullName}', '{birthDate}', '{patientAddress}'", Connection)
+                    $"VALUES ('{fullName}', '{birthDate}', '{patientAddress}')", Connection)
                 .ExecuteNonQuery();
         }
 
         public static void EditPatientInDataBase(string id, string fullName, string birthDate, string patientAddress)
         {
             new SqlCommand(
-                    $"UPDATE Пациент SET ФИО = '{fullName}', ДатаРождения = '{birthDate}', АдресПациента = '{patientAddress}'" +
-                    $"WHERE Ид = '{id}'")
+                    $"UPDATE Пациент SET ФИО = '{fullName}', ДатаРождения = '{birthDate}', АдресПациента = '{patientAddress}' " +
+                    $"WHERE Ид = '{id}'", Connection)
                 .ExecuteNonQuery();
         }
     }

@@ -88,13 +88,13 @@ namespace Golikov_WinFormHospital
 
 		private void AddPatientButton_Click(object sender, EventArgs e)
 		{
-            var pf = new PatientForm(WorkMode.Add) { Owner = this };
+            var pf = new PatientForm(WorkMode.Add, this);
             pf.Show();
         }
 
 		private void EditPatientButton_Click(object sender, EventArgs e)
 		{
-            var pf = new PatientForm(WorkMode.Edit) { Owner = this };
+            var pf = new PatientForm(WorkMode.Edit, this);
             pf.Show();
 		}
 
@@ -107,7 +107,7 @@ namespace Golikov_WinFormHospital
         {
             SelectedPatientRowIndex = e.RowIndex;
             if (SelectedPatientRowIndex < 0) return; 
-            SelectedPatientRow = DoctorsDataGridView.Rows[SelectedPatientRowIndex];
+            SelectedPatientRow = PatientsDataGridView.Rows[SelectedPatientRowIndex];
         }
     }
 }

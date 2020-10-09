@@ -9,16 +9,26 @@ namespace Golikov_WinFormHospital
         private WorkMode workMode;
         private Form1 mainForm;
         
-        public PatientForm(WorkMode wm)
+        public PatientForm(WorkMode wm, Form1 owner)
         {
             InitializeComponent();
             
             workMode = wm;
-            mainForm = Owner as Form1;
+            mainForm = owner;
+            
+            if (wm == WorkMode.Edit)
+            {
+                if (mainForm.SelectedPatientRow == null) return;
+                var selPat = mainForm.SelectedPatientRow.Cells;
+                FullnameTB.Text = selPat[1].Value.ToString();
+                BirthDateTB.Text = selPat[2].Value.ToString();
+                PatientAddressTB.Text = selPat[3].Value.ToString();
+            }
         }
         
         private void OkButton_Click(object sender, EventArgs e)
         {
+            // mainForm = Owner as Form1;
             if (mainForm == null) return;
 
             switch (workMode)
@@ -29,6 +39,9 @@ namespace Golikov_WinFormHospital
                 case WorkMode.Edit:
                     EditPatient();
                     break;
+                default:
+                    MessageBox.Show("The work mode is not set.");
+                    break;
             }
             
             this.Close();
@@ -36,13 +49,6 @@ namespace Golikov_WinFormHospital
         
         private void AddPatient()
         {
-            // MyDb.AddDoctorToDataBase(
-            //     FullnameTB.Text,
-            //     SpecialtyIdTB.Text,
-            //     VisitCostTB.Text,
-            //     SalaryPercentTB.Text,
-            //     HospitalIdTB.Text);
-            // UpdateAllView();
             MyDb.AddPatientToDataBase(
                 FullnameTB.Text,
                 BirthDateTB.Text,
@@ -53,13 +59,15 @@ namespace Golikov_WinFormHospital
         private void EditPatient()
         {
             MyDb.EditPatientInDataBase(
-                mainForm.SelectedPatientRow.Cells[0].ToString(),
+                mainForm.SelectedPatientRow.Cells[0].Value.ToString(),
                 FullnameTB.Text,
                 BirthDateTB.Text,
                 PatientAddressTB.Text
             );
             mainForm.UpdateAllView(); //TODO LAST CHANGES
         }
+
+        private void CloseButton_Click(object sender, EventArgs e) => Close();
     }
 
     public enum WorkMode

@@ -7,5 +7,11 @@
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
       <jdbc-url>jdbc:sqlserver://OCMSSQL02;database=Голиков3пк2_Поликлиника</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="LaptopHospitalDB" uuid="81981d64-a50a-4d2f-aac1-2ffc44b7e1cc">
+      <driver-ref>sqlserver.ms</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
+      <jdbc-url>jdbc:sqlserver://localhost\SQLEXPRESS</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -281,6 +281,7 @@ namespace Golikov_WinFormHospital
 	        this.PatientsDataGridView.Name = "PatientsDataGridView";
 	        this.PatientsDataGridView.Size = new System.Drawing.Size(984, 532);
 	        this.PatientsDataGridView.TabIndex = 0;
+	        this.PatientsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientsDataGridView_CellClick);
 	        // 
 	        // DoctorVisitsTabPage
 	        // 
