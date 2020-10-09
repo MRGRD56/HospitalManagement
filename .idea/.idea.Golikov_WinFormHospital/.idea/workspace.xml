@@ -13,16 +13,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e070062-282b-4c06-9224-317635a82dac" name="Default Changelist" comment="Начал делать 2й способ (пациенты)">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/dataSources/c0a45579-69c8-4d2f-9855-993699ed929a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/dataSources/c0a45579-69c8-4d2f-9855-993699ed929a.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Golikov_WinFormHospital/DataObjects/MyDb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Golikov_WinFormHospital/DataObjects/MyDb.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.Designer.cs" afterDir="false" />
+    <list default="true" id="2e070062-282b-4c06-9224-317635a82dac" name="Default Changelist" comment="Способ 2: доделано Д и Р">
       <change beforePath="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Golikov_WinFormHospital/PatientForm.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Golikov_WinFormHospital/PatientForm.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Golikov_WinFormHospital/PatientForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Golikov_WinFormHospital/PatientForm.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,9 +44,9 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/81981d64-a50a-4d2f-aac1-2ffc44b7e1cc/console_2.sql" />
         <option value="$PROJECT_DIR$/Golikov_WinFormHospital/PatientForm.Designer.cs" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/81981d64-a50a-4d2f-aac1-2ffc44b7e1cc/console_3.sql" />
-        <option value="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.cs" />
         <option value="$PROJECT_DIR$/Golikov_WinFormHospital/DataObjects/MyDb.cs" />
         <option value="$PROJECT_DIR$/Golikov_WinFormHospital/PatientForm.cs" />
+        <option value="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.cs" />
       </list>
     </option>
   </component>
@@ -106,7 +98,7 @@
       <workItem from="1601874814697" duration="5380000" />
       <workItem from="1602135598675" duration="15694000" />
       <workItem from="1602157678892" duration="3662000" />
-      <workItem from="1602221700216" duration="4419000" />
+      <workItem from="1602221700216" duration="4867000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1601878649646</created>
@@ -164,7 +156,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602150754783</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Способ 2: доделано Д и Р">
+      <created>1602227443162</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602227443162</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Способ 2: доделано Д и Р">
+      <created>1602227482941</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602227482941</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,7 +200,8 @@
     <MESSAGE value="работает добавление и редактирование" />
     <MESSAGE value="Доделан первый способ Д, Р, У" />
     <MESSAGE value="Начал делать 2й способ (пациенты)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Начал делать 2й способ (пациенты)" />
+    <MESSAGE value="Способ 2: доделано Д и Р" />
+    <option name="LAST_COMMIT_MESSAGE" value="Способ 2: доделано Д и Р" />
   </component>
   <component name="WindowStateProjectService">
     <state x="536" y="165" key="#Inspection_severity" timestamp="1602158382052">
@@ -309,10 +316,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602144019767" />
-    <state x="72" y="325" key="Vcs.Push.Dialog.v2" timestamp="1602150763577">
+    <state x="72" y="325" key="Vcs.Push.Dialog.v2" timestamp="1602227485601">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="72" y="325" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602150763577" />
+    <state x="72" y="325" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602227485601" />
     <state x="832" y="362" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1602158798967">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

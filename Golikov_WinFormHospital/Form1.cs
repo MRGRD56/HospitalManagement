@@ -100,7 +100,10 @@ namespace Golikov_WinFormHospital
 
 		private void DeletePatientButton_Click(object sender, EventArgs e)
 		{
-
+            if (SelectedPatientRow == null) return;
+            var patientId = SelectedPatientRow.Cells[0].Value.ToString();
+            MyDb.DeleteObjectFromDataBase("Пациент", patientId);
+            UpdateAllView();
 		}
 
         private void PatientsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)

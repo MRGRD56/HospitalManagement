@@ -64,7 +64,7 @@ namespace Golikov_WinFormHospital
                 BirthDateTB.Text,
                 PatientAddressTB.Text
             );
-            mainForm.UpdateAllView(); //TODO LAST CHANGES
+            mainForm.UpdateAllView();
         }
 
         private void CloseButton_Click(object sender, EventArgs e) => Close();
