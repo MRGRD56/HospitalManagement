@@ -34,7 +34,9 @@ namespace Golikov_WinFormHospital.DataObjects
         
         // @"Data Source=localhost\SQLEXPRESS;Initial Catalog=Голиков3пк2_Поликлиника;Integrated Security=True"
         // @"Data Source=OCMSSQL02;Initial Catalog=Голиков3пк2_Поликлиника;Integrated Security=True"
-        
+
+        public static void RunSql(string sql) => new SqlCommand(sql, Connection).ExecuteNonQuery();
+
         private static string SelectQuery { get; } =
             "SELECT * FROM Врач\n" +
             //TABLE 2 - Пациенты

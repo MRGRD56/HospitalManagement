@@ -22,7 +22,8 @@ namespace Golikov_WinFormHospital
         
         public Form1()
         {
-            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+            System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("ru-RU");
+            
             InitializeComponent();
             
             //MyDb.Connection.Open();
@@ -32,10 +33,12 @@ namespace Golikov_WinFormHospital
         public void UpdateAllView()
         {
             MyDb.UpdateViewData();
-            
+
             DoctorsDataGridView.DataSource = MyDb.DSet.Tables[0];
             PatientsDataGridView.DataSource = MyDb.DSet.Tables[1];
-            DoctorVisitsDataGridView.DataSource = MyDb.DSet.Tables[2];
+            var doctorVisitsDataSourse = new BindingSource { DataSource = MyDb.DSet.Tables[2] };
+            DoctorVisitsDataGridView.DataSource = doctorVisitsDataSourse;
+            DoctorVisitsBindingNavigator.BindingSource = doctorVisitsDataSourse;
         }
         
         private void DoctorsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -58,7 +61,7 @@ namespace Golikov_WinFormHospital
                 FullnameTB.Text,
                 SpecialtyIdTB.Text,
                 VisitCostTB.Text,
-                SalaryPercentTB.Text,
+                SalaryPercentTB.Text.Replace(",", "."),
                 HospitalIdTB.Text);
             UpdateAllView();
         }
@@ -72,7 +75,7 @@ namespace Golikov_WinFormHospital
                 FullnameTB.Text,
                 SpecialtyIdTB.Text,
                 VisitCostTB.Text,
-                SalaryPercentTB.Text,
+                SalaryPercentTB.Text.Replace(",", "."),
                 HospitalIdTB.Text
                 );
             UpdateAllView();
@@ -111,6 +114,30 @@ namespace Golikov_WinFormHospital
             SelectedPatientRowIndex = e.RowIndex;
             if (SelectedPatientRowIndex < 0) return; 
             SelectedPatientRow = PatientsDataGridView.Rows[SelectedPatientRowIndex];
+        }
+        
+        private void SaveToolStripButton_Click(object sender, EventArgs e)
+        {
+            //overwriting the table
+            //MyDb.RunSql("SET IDENTITY_INSERT Приём ON");
+            MyDb.RunSql("TRUNCATE TABLE Приём");
+            
+            for (int r = 0; r < DoctorVisitsDataGridView.Rows.Count; r++ )
+            {
+                var row = DoctorVisitsDataGridView.Rows[r];
+                if (row.Cells[0].Value == null) break;
+                var id = row.Cells[0].Value.ToString();
+                var patientId = row.Cells[1].Value.ToString();
+                var doctorId = row.Cells[2].Value.ToString();
+                var officeId = row.Cells[3].Value.ToString();
+                var visitTime = row.Cells[4].Value.ToString();
+                
+                MyDb.RunSql("SET IDENTITY_INSERT Приём ON \n" + 
+                            "INSERT INTO Приём (Ид, ПациентИд, ВрачИд, КабинетИд, ВремяПриёма) " +
+                            $"VALUES ('{id}', '{patientId}', '{doctorId}', '{officeId}', '{visitTime}') ");
+            }
+            
+            MyDb.RunSql(@"SET IDENTITY_INSERT Приём OFF");
         }
     }
 }
