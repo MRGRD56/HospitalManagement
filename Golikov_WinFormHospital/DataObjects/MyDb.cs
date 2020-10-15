@@ -9,7 +9,7 @@ namespace Golikov_WinFormHospital.DataObjects
         static MyDb()
         {
             Connection.Open();
-            UpdateViewData();
+            ResetViewData();
         }
         
         // private static string SelectQuery { get; } =
@@ -47,14 +47,25 @@ namespace Golikov_WinFormHospital.DataObjects
         public static DataSet DSet { get; set; } = new DataSet();
         public static SqlDataAdapter Adapter { get; set; }
 
-        public static void UpdateViewData()
+        public static void UpdateViewData(string sql)
         {
             //Connection.Open();
             DSet = new DataSet();
-            Adapter = new SqlDataAdapter(SelectQuery, Connection);
+            Adapter = new SqlDataAdapter(sql, Connection);
             Adapter.Fill(DSet);
         }
         
+        public static void ResetViewData() => UpdateViewData(SelectQuery);
+
+        public static void FilterDoctors(string fullName, string id)
+        {
+            if (string.IsNullOrWhiteSpace(id)) id = "%";
+            
+            UpdateViewData($"SELECT * FROM Врач WHERE ФИО LIKE '%{fullName}%' AND Ид LIKE '{id}'\n" +
+                           "SELECT * FROM Пациент\n" +
+                           "SELECT * FROM Приём ");
+        }
+
         public static void AddDoctorToDataBase(string fullName, string specialtyId, string visitCost, string salaryPercent, string hospitalId)
         {
             new SqlCommand(
@@ -66,32 +77,29 @@ namespace Golikov_WinFormHospital.DataObjects
         public static void EditDoctorInDataBase(string id, string fullName, string specialtyId, string visitCost,
             string salaryPercent, string hospitalId)
         {
-            new SqlCommand($"UPDATE Врач SET ФИО = '{fullName}', СпециальностьИд = '{specialtyId}', СтоимостьПриёма = '{visitCost}', " +
-                           $"ПроцентОтчисленияНаЗарплату = '{salaryPercent}', ПоликлиникаИд = '{hospitalId}' " +
-                           $"WHERE Ид = '{id}'", Connection)
-                .ExecuteNonQuery();
+            RunSql(
+                $"UPDATE Врач SET ФИО = '{fullName}', СпециальностьИд = '{specialtyId}', СтоимостьПриёма = '{visitCost}', " +
+                $"ПроцентОтчисленияНаЗарплату = '{salaryPercent}', ПоликлиникаИд = '{hospitalId}' " +
+                $"WHERE Ид = '{id}'");
         }
 
         public static void DeleteObjectFromDataBase(string objectName, string id, string idName = "Ид")
         {
-            new SqlCommand($"DELETE FROM {objectName} WHERE {idName} = {id}", Connection)
-                .ExecuteNonQuery();
+            RunSql($"DELETE FROM {objectName} WHERE {idName} = {id}");
         }
 
         public static void AddPatientToDataBase(string fullName, string birthDate, string patientAddress)
         {
-            new SqlCommand(
-                    $"INSERT INTO Пациент (ФИО, ДатаРождения, АдресПациента) " +
-                    $"VALUES ('{fullName}', '{birthDate}', '{patientAddress}')", Connection)
-                .ExecuteNonQuery();
+            RunSql(
+                 "INSERT INTO Пациент (ФИО, ДатаРождения, АдресПациента) " +
+                $"VALUES ('{fullName}', '{birthDate}', '{patientAddress}')");
         }
 
         public static void EditPatientInDataBase(string id, string fullName, string birthDate, string patientAddress)
         {
-            new SqlCommand(
-                    $"UPDATE Пациент SET ФИО = '{fullName}', ДатаРождения = '{birthDate}', АдресПациента = '{patientAddress}' " +
-                    $"WHERE Ид = '{id}'", Connection)
-                .ExecuteNonQuery();
+            RunSql(
+                $"UPDATE Пациент SET ФИО = '{fullName}', ДатаРождения = '{birthDate}', АдресПациента = '{patientAddress}' " +
+                $"WHERE Ид = '{id}'");
         }
     }
 }

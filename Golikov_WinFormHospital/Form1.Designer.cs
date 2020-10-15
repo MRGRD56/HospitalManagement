@@ -35,6 +35,10 @@ namespace Golikov_WinFormHospital
 	        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
 	        this.MainTabControl = new System.Windows.Forms.TabControl();
 	        this.DoctorsTabPage = new System.Windows.Forms.TabPage();
+	        this.label7 = new System.Windows.Forms.Label();
+	        this.DoctorIdFilterTB = new System.Windows.Forms.TextBox();
+	        this.label6 = new System.Windows.Forms.Label();
+	        this.DoctorSearchingTB = new System.Windows.Forms.TextBox();
 	        this.panel1 = new System.Windows.Forms.Panel();
 	        this.FullnameTB = new System.Windows.Forms.TextBox();
 	        this.HospitalIdTB = new System.Windows.Forms.TextBox();
@@ -92,20 +96,58 @@ namespace Golikov_WinFormHospital
 	        this.MainTabControl.Location = new System.Drawing.Point(0, 0);
 	        this.MainTabControl.Name = "MainTabControl";
 	        this.MainTabControl.SelectedIndex = 0;
-	        this.MainTabControl.Size = new System.Drawing.Size(998, 593);
+	        this.MainTabControl.Size = new System.Drawing.Size(998, 660);
 	        this.MainTabControl.TabIndex = 0;
 	        // 
 	        // DoctorsTabPage
 	        // 
+	        this.DoctorsTabPage.Controls.Add(this.label7);
+	        this.DoctorsTabPage.Controls.Add(this.DoctorIdFilterTB);
+	        this.DoctorsTabPage.Controls.Add(this.label6);
+	        this.DoctorsTabPage.Controls.Add(this.DoctorSearchingTB);
 	        this.DoctorsTabPage.Controls.Add(this.panel1);
 	        this.DoctorsTabPage.Controls.Add(this.DoctorsDataGridView);
 	        this.DoctorsTabPage.Location = new System.Drawing.Point(4, 22);
 	        this.DoctorsTabPage.Name = "DoctorsTabPage";
 	        this.DoctorsTabPage.Padding = new System.Windows.Forms.Padding(3);
-	        this.DoctorsTabPage.Size = new System.Drawing.Size(990, 567);
+	        this.DoctorsTabPage.Size = new System.Drawing.Size(990, 634);
 	        this.DoctorsTabPage.TabIndex = 0;
 	        this.DoctorsTabPage.Text = "Врачи";
 	        this.DoctorsTabPage.UseVisualStyleBackColor = true;
+	        // 
+	        // label7
+	        // 
+	        this.label7.Location = new System.Drawing.Point(355, 3);
+	        this.label7.Name = "label7";
+	        this.label7.Size = new System.Drawing.Size(43, 18);
+	        this.label7.TabIndex = 14;
+	        this.label7.Text = "ID: ";
+	        this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+	        // 
+	        // DoctorIdFilterTB
+	        // 
+	        this.DoctorIdFilterTB.Location = new System.Drawing.Point(404, 3);
+	        this.DoctorIdFilterTB.Name = "DoctorIdFilterTB";
+	        this.DoctorIdFilterTB.Size = new System.Drawing.Size(75, 20);
+	        this.DoctorIdFilterTB.TabIndex = 13;
+	        this.DoctorIdFilterTB.TextChanged += new System.EventHandler(this.DoctorIdFilterTB_TextChanged);
+	        // 
+	        // label6
+	        // 
+	        this.label6.Location = new System.Drawing.Point(0, 3);
+	        this.label6.Name = "label6";
+	        this.label6.Size = new System.Drawing.Size(43, 18);
+	        this.label6.TabIndex = 12;
+	        this.label6.Text = "ФИО: ";
+	        this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+	        // 
+	        // DoctorSearchingTB
+	        // 
+	        this.DoctorSearchingTB.Location = new System.Drawing.Point(49, 3);
+	        this.DoctorSearchingTB.Name = "DoctorSearchingTB";
+	        this.DoctorSearchingTB.Size = new System.Drawing.Size(296, 20);
+	        this.DoctorSearchingTB.TabIndex = 12;
+	        this.DoctorSearchingTB.TextChanged += new System.EventHandler(this.DoctorSearchingTB_TextChanged);
 	        // 
 	        // panel1
 	        // 
@@ -123,7 +165,7 @@ namespace Golikov_WinFormHospital
 	        this.panel1.Controls.Add(this.label3);
 	        this.panel1.Controls.Add(this.label5);
 	        this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-	        this.panel1.Location = new System.Drawing.Point(3, 441);
+	        this.panel1.Location = new System.Drawing.Point(3, 508);
 	        this.panel1.Name = "panel1";
 	        this.panel1.Size = new System.Drawing.Size(984, 123);
 	        this.panel1.TabIndex = 12;
@@ -241,10 +283,9 @@ namespace Golikov_WinFormHospital
 	        // DoctorsDataGridView
 	        // 
 	        this.DoctorsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-	        this.DoctorsDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
-	        this.DoctorsDataGridView.Location = new System.Drawing.Point(3, 3);
+	        this.DoctorsDataGridView.Location = new System.Drawing.Point(3, 26);
 	        this.DoctorsDataGridView.Name = "DoctorsDataGridView";
-	        this.DoctorsDataGridView.Size = new System.Drawing.Size(984, 437);
+	        this.DoctorsDataGridView.Size = new System.Drawing.Size(984, 479);
 	        this.DoctorsDataGridView.TabIndex = 0;
 	        this.DoctorsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DoctorsDataGridView_CellClick);
 	        // 
@@ -257,7 +298,7 @@ namespace Golikov_WinFormHospital
 	        this.PatientsTabPage.Location = new System.Drawing.Point(4, 22);
 	        this.PatientsTabPage.Name = "PatientsTabPage";
 	        this.PatientsTabPage.Padding = new System.Windows.Forms.Padding(3);
-	        this.PatientsTabPage.Size = new System.Drawing.Size(990, 567);
+	        this.PatientsTabPage.Size = new System.Drawing.Size(990, 634);
 	        this.PatientsTabPage.TabIndex = 1;
 	        this.PatientsTabPage.Text = "Пациенты";
 	        this.PatientsTabPage.UseVisualStyleBackColor = true;
@@ -308,7 +349,7 @@ namespace Golikov_WinFormHospital
 	        this.DoctorVisitsTabPage.Location = new System.Drawing.Point(4, 22);
 	        this.DoctorVisitsTabPage.Name = "DoctorVisitsTabPage";
 	        this.DoctorVisitsTabPage.Padding = new System.Windows.Forms.Padding(3);
-	        this.DoctorVisitsTabPage.Size = new System.Drawing.Size(990, 567);
+	        this.DoctorVisitsTabPage.Size = new System.Drawing.Size(990, 634);
 	        this.DoctorVisitsTabPage.TabIndex = 2;
 	        this.DoctorVisitsTabPage.Text = "Приёмы";
 	        this.DoctorVisitsTabPage.UseVisualStyleBackColor = true;
@@ -443,12 +484,13 @@ namespace Golikov_WinFormHospital
 	        // 
 	        this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 	        this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-	        this.ClientSize = new System.Drawing.Size(998, 593);
+	        this.ClientSize = new System.Drawing.Size(998, 660);
 	        this.Controls.Add(this.MainTabControl);
 	        this.Name = "Form1";
 	        this.Text = "Hospital";
 	        this.MainTabControl.ResumeLayout(false);
 	        this.DoctorsTabPage.ResumeLayout(false);
+	        this.DoctorsTabPage.PerformLayout();
 	        this.panel1.ResumeLayout(false);
 	        this.panel1.PerformLayout();
 	        ((System.ComponentModel.ISupportInitialize) (this.DoctorsDataGridView)).EndInit();
@@ -462,6 +504,12 @@ namespace Golikov_WinFormHospital
 	        ((System.ComponentModel.ISupportInitialize) (this.DoctorVisitsDataGridView)).EndInit();
 	        this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.TextBox DoctorIdFilterTB;
+        private System.Windows.Forms.Label label7;
+
+        private System.Windows.Forms.TextBox DoctorSearchingTB;
+        private System.Windows.Forms.Label label6;
 
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 

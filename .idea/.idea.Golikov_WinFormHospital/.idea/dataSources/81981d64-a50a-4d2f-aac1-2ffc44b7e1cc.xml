@@ -428,6 +428,7 @@
     </view>
     <table id="94" parent="35" name="Врач">
       <ObjectId>629577281</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2020-10-08.22:21:46.130</CreatedTimestamp>
       <ModifiedTimestamp>2020-10-08.22:21:46.277</ModifiedTimestamp>
     </table>
@@ -453,6 +454,7 @@
     </table>
     <table id="99" parent="35" name="Приём">
       <ObjectId>757577737</ObjectId>
+      <Outdated>1</Outdated>
       <CreatedTimestamp>2020-10-08.22:21:46.227</CreatedTimestamp>
       <ModifiedTimestamp>2020-10-08.22:21:46.280</ModifiedTimestamp>
     </table>
