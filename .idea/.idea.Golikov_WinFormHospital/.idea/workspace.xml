@@ -13,13 +13,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e070062-282b-4c06-9224-317635a82dac" name="Default Changelist" comment="Завершено ПЗ №3">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/dataSources/81981d64-a50a-4d2f-aac1-2ffc44b7e1cc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/dataSources/81981d64-a50a-4d2f-aac1-2ffc44b7e1cc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/sqldialects.xml" afterDir="false" />
+    <list default="true" id="2e070062-282b-4c06-9224-317635a82dac" name="Default Changelist" comment="Завершено ПЗ №4">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Golikov_WinFormHospital/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Golikov_WinFormHospital/DataObjects/MyDb.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Golikov_WinFormHospital/DataObjects/MyDb.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Golikov_WinFormHospital/Form1.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +101,7 @@
       <workItem from="1602157678892" duration="3662000" />
       <workItem from="1602221700216" duration="13810000" />
       <workItem from="1602493379746" duration="3128000" />
-      <workItem from="1602768967347" duration="4075000" />
+      <workItem from="1602768967347" duration="5036000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1601878649646</created>
@@ -192,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602239442851</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Завершено ПЗ №4">
+      <created>1602773125720</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602773125720</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +227,8 @@
     <MESSAGE value="Способ 2: доделано Д и Р" />
     <MESSAGE value="Доделан способ 2" />
     <MESSAGE value="Завершено ПЗ №3" />
-    <option name="LAST_COMMIT_MESSAGE" value="Завершено ПЗ №3" />
+    <MESSAGE value="Завершено ПЗ №4" />
+    <option name="LAST_COMMIT_MESSAGE" value="Завершено ПЗ №4" />
   </component>
   <component name="WindowStateProjectService">
     <state x="536" y="165" key="#Inspection_severity" timestamp="1602158382052">
@@ -356,14 +359,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="VCS.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602232787869" />
-    <state x="72" y="325" key="Vcs.Push.Dialog.v2" timestamp="1602239448057">
+    <state x="72" y="325" key="Vcs.Push.Dialog.v2" timestamp="1602774090512">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="72" y="325" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602239448057" />
+    <state x="72" y="325" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602774090512" />
     <state x="832" y="362" key="com.intellij.database.actions.DdlActions$CreateObject$1" timestamp="1602158798967">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="832" y="362" key="com.intellij.database.actions.DdlActions$CreateObject$1/0.0.1920.1040@0.0.1920.1040" timestamp="1602158798967" />
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602774082740">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="777" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602774082740" />
     <state x="107" y="31" width="1376" height="298" key="dock-window-1" timestamp="1602494771391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
